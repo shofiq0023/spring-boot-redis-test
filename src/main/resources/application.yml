@@ -1,0 +1,34 @@
+server:
+  port: 8080
+
+spring:
+
+  # redis connection configuration
+  redis:
+    host: localhost
+    port: 6379
+    timeout: 10000
+
+  # caching related configuration
+  cache:
+    type: REDIS
+    redis:
+      cache-null-values: false
+      use-key-prefix: true
+      key-prefix: app
+      time-to-live: 86400000
+
+  application:
+    name: spring-boot-redis-app
+
+  datasource:
+    username: postgres
+    password: admin
+    url: jdbc:postgresql://localhost:5432/test
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialact: org.hibernate.dialect.PostgreSQL9Dialect
